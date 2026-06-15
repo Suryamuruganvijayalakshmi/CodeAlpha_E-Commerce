@@ -1,40 +1,40 @@
 # 🛒 CodeAlpha E-Commerce Website
 
-A modern and responsive E-Commerce website developed as part of the **CodeAlpha Internship Program**. This project provides a seamless online shopping experience with an attractive user interface and interactive features.
+A modern and responsive E-Commerce website developed using **HTML, CSS, and JavaScript**. This project provides a smooth and interactive shopping experience with product browsing, cart management, user login, and order placement functionalities.
 
 ## 🚀 Features
 
 - 🏠 Responsive Home Page
-- 🛍️ Product Listings
-- 🔍 Search Functionality
-- 🛒 Add to Cart
-- ❤️ Wishlist Support
+- 🛍️ Product Details Page
+- 🛒 Shopping Cart Functionality
+- 🔐 User Login Page
+- 📦 Order Confirmation Page
+- ⚡ Interactive UI with JavaScript
 - 📱 Mobile-Friendly Design
-- ⚡ Fast and Interactive User Experience
-- 🎨 Modern UI with CSS Animations
+- 🎨 Clean and Modern Interface
 
 ## 🛠️ Technologies Used
 
 - HTML5
 - CSS3
 - JavaScript
-- Bootstrap
-- Font Awesome
 
 ## 📂 Project Structure
 
 ```text
 CodeAlpha_E-Commerce/
 │
-├── index.html
-├── css/
-├── js/
-├── images/
-├── assets/
-└── README.md
+├── index.html              # Home page
+├── product-details.html    # Product information page
+├── cart.html               # Shopping cart page
+├── login.html              # User login page
+├── order.html              # Order confirmation page
+├── style.css               # Styling for the website
+├── script.js               # JavaScript functionality
+└── README.md               # Project documentation
 ```
 
-## 💻 Installation
+## 💻 How to Run
 
 1. Clone the repository:
 
@@ -50,33 +50,15 @@ cd CodeAlpha_E-Commerce
 
 3. Open `index.html` in your browser.
 
-## 📸 Screenshots
+## 🌟 Future Enhancements
 
-Add screenshots of the following pages:
-
-- Home Page
-- Product Page
-- Shopping Cart
-- Checkout Page
-
-## 🎯 Future Improvements
-
-- User Authentication
+- User Registration System
+- Wishlist Feature
 - Payment Gateway Integration
-- Order Tracking System
-- Product Reviews and Ratings
+- Product Search and Filtering
+- Order Tracking
 - Admin Dashboard
-- AI-Based Product Recommendations
-
-## 🤝 Contributing
-
-Contributions are welcome! Feel free to fork the repository and submit a pull request.
-
-## 📜 License
-
-This project is licensed under the MIT License.
-
----
+- Product Reviews and Ratings
 
 ## 👨‍💻 Author
 
@@ -84,4 +66,6 @@ This project is licensed under the MIT License.
 
 - GitHub: [Suryamuruganvijayalakshmi](https://github.com/Suryamuruganvijayalakshmi)
 
-⭐ If you found this project useful, don't forget to star the repository!
+---
+
+⭐ If you found this project useful, please consider giving it a star on GitHub!
