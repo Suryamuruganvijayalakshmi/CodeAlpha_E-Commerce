@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ShopCart - Product Details</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar">
+    <div class="logo">🛒 ShopCart</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#products">Products</a></li>
+      <li>
+        <a href="cart.html" class="cart-icon">
+          Cart
+          <span class="cart-count" id="cart-count" style="display:none;">0</span>
+        </a>
+      </li>
+      <li><a href="login.html" id="login-nav-link">Login</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===== PRODUCT DETAILS SECTION ===== -->
+  <section class="product-details-section">
+
+    <!-- Back button to go to home page -->
+    <a href="index.html" class="back-link">← Back to Products</a>
+
+    <!-- Product box - filled by JavaScript -->
+    <div class="product-details-box" id="product-details-box">
+      <p style="color:#6b7280;">Loading product...</p>
+    </div>
+
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <p>&copy; 2025 ShopCart. Made with ❤️ by a CSE Student.</p>
+  </footer>
+
+  <!-- Toast popup -->
+  <div class="toast" id="toast"></div>
+
+  <script src="script.js"></script>
+
+  <script>
+    // ===== GET PRODUCT ID FROM URL =====
+    // URL looks like: product-details.html?id=2
+    function getProductIdFromURL() {
+      const params = new URLSearchParams(window.location.search);
+      return parseInt(params.get('id'));
+    }
+
+    // ===== SHOW PRODUCT DETAILS =====
+    function loadProductDetails() {
+      const productId = getProductIdFromURL();
+      const product = products.find(p => p.id === productId);
+
+      const box = document.getElementById('product-details-box');
+
+      if (!product) {
+        // If product not found
+        box.innerHTML = '<p style="color:red;">Product not found. <a href="index.html">Go back</a></p>';
+        return;
+      }
+
+      // Fill the details box with product info
+      box.innerHTML = `
+        <div class="detail-img">${product.emoji}</div>
+        <div class="detail-info">
+          <h2>${product.name}</h2>
+          <div class="price">₹${product.price.toLocaleString()}</div>
+          <p>${product.fullDesc}</p>
+
+          <!-- Quantity selector -->
+          <div class="qty-row">
+            <label for="qty-input">Quantity:</label>
+            <input type="number" id="qty-input" value="1" min="1" max="10" />
+          </div>
+
+          <!-- Buttons -->
+          <div style="display:flex; gap:12px; flex-wrap:wrap;">
+            <button class="btn" onclick="handleAddToCart(${product.id})">Add to Cart 🛒</button>
+            <a href="cart.html" class="btn btn-outline">View Cart</a>
+          </div>
+        </div>
+      `;
+
+      // Also update page title
+      document.title = 'ShopCart - ' + product.name;
+    }
+
+    // Add to cart from details page (with quantity)
+    function handleAddToCart(productId) {
+      const qtyInput = document.getElementById('qty-input');
+      const qty = parseInt(qtyInput.value) || 1;
+      addToCart(productId, qty);
+    }
+
+    // Load the product when page opens
+    loadProductDetails();
+  </script>
+
+</body>
+</html>

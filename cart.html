@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ShopCart - My Cart</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar">
+    <div class="logo">🛒 ShopCart</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#products">Products</a></li>
+      <li>
+        <a href="cart.html" class="cart-icon">
+          Cart
+          <span class="cart-count" id="cart-count" style="display:none;">0</span>
+        </a>
+      </li>
+      <li><a href="login.html" id="login-nav-link">Login</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===== CART SECTION ===== -->
+  <section class="cart-section">
+    <h1>My Cart 🛒</h1>
+
+    <!-- Cart items will be rendered here by JS -->
+    <div id="cart-content">
+      <!-- Filled by JavaScript -->
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <p>&copy; 2025 ShopCart. Made with ❤️ by a CSE Student.</p>
+  </footer>
+
+  <!-- Toast popup -->
+  <div class="toast" id="toast"></div>
+
+  <script src="script.js"></script>
+
+  <script>
+    // ===== RENDER CART PAGE =====
+    function renderCart() {
+      const cart = getCart();
+      const container = document.getElementById('cart-content');
+
+      // If cart is empty, show empty message
+      if (cart.length === 0) {
+        container.innerHTML = `
+          <div class="empty-cart">
+            <div class="empty-icon">🛒</div>
+            <p>Your cart is empty. Go shop something!</p>
+            <a href="index.html" class="btn">Browse Products</a>
+          </div>
+        `;
+        return;
+      }
+
+      // Calculate total price
+      let total = 0;
+      cart.forEach(item => {
+        total += item.price * item.quantity;
+      });
+
+      // Build the cart table HTML
+      let tableRows = '';
+      cart.forEach(function(item) {
+        const itemTotal = item.price * item.quantity;
+        tableRows += `
+          <tr>
+            <td>
+              <span style="font-size:22px; margin-right:8px;">${item.emoji}</span>
+              ${item.name}
+            </td>
+            <td>
+              <div class="qty-controls">
+                <button onclick="changeQty(${item.id}, -1)">−</button>
+                <span>${item.quantity}</span>
+                <button onclick="changeQty(${item.id}, 1)">+</button>
+              </div>
+            </td>
+            <td>₹${item.price.toLocaleString()}</td>
+            <td>₹${itemTotal.toLocaleString()}</td>
+            <td>
+              <button class="btn btn-danger" style="font-size:12px; padding:6px 12px;" onclick="deleteItem(${item.id})">Remove</button>
+            </td>
+          </tr>
+        `;
+      });
+
+      // Put it all together
+      container.innerHTML = `
+        <table class="cart-table">
+          <thead>
+            <tr>
+              <th>Product</th>
+              <th>Quantity</th>
+              <th>Price</th>
+              <th>Total</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${tableRows}
+          </tbody>
+        </table>
+
+        <div class="cart-total-box">
+          <div class="total-text">Order Total: ₹${total.toLocaleString()}</div>
+          <button class="btn btn-green" style="font-size:15px; padding:12px 28px;" onclick="placeOrder()">
+            Place Order ✔
+          </button>
+        </div>
+      `;
+    }
+
+    // ===== CHANGE QUANTITY (+/-) =====
+    function changeQty(productId, change) {
+      updateCartQty(productId, change);
+      updateCartCount();
+      renderCart(); // Re-render cart to show updated values
+    }
+
+    // ===== REMOVE ITEM =====
+    function deleteItem(productId) {
+      removeFromCart(productId);
+      updateCartCount();
+      renderCart();
+    }
+
+    // ===== PLACE ORDER =====
+    function placeOrder() {
+      const user = getCurrentUser();
+
+      // Check if user is logged in
+      if (!user) {
+        if (confirm('You need to login to place an order. Go to login page?')) {
+          window.location.href = 'login.html';
+        }
+        return;
+      }
+
+      // Go to order confirmation page
+      window.location.href = 'order.html';
+    }
+
+    // Run on page load
+    renderCart();
+  </script>
+
+</body>
+</html>
