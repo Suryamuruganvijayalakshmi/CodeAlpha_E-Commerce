@@ -1,101 +1,76 @@
-# 🛒 E-Commerce Website
+# 🛒 CodeAlpha E-Commerce Website
 
-A modern and responsive e-commerce platform designed to provide a smooth and user-friendly online shopping experience. Users can browse products, add items to their cart, and place orders seamlessly.
+A modern and responsive E-Commerce website developed as part of the **CodeAlpha Internship Program**. This project provides a seamless online shopping experience with an attractive user interface and interactive features.
 
-## ✨ Features
+## 🚀 Features
 
-- Responsive and modern UI
-- Product catalog with images and descriptions
-- Search and filtering functionality
-- Shopping cart management
-- User authentication (Login & Signup)
-- Secure checkout process
-- Order summary and total price calculation
-- Mobile-friendly design
+- 🏠 Responsive Home Page
+- 🛍️ Product Listings
+- 🔍 Search Functionality
+- 🛒 Add to Cart
+- ❤️ Wishlist Support
+- 📱 Mobile-Friendly Design
+- ⚡ Fast and Interactive User Experience
+- 🎨 Modern UI with CSS Animations
 
-## 🛠️ Tech Stack
+## 🛠️ Technologies Used
 
-### Frontend
 - HTML5
 - CSS3
 - JavaScript
-
-### Backend
-- Node.js
-- Express.js
-
-### Database
-- MongoDB
-
-### Tools & Services
-- Firebase Authentication
-- Git & GitHub
-- VS Code
+- Bootstrap
+- Font Awesome
 
 ## 📂 Project Structure
 
-```bash
-├── public/
-│   ├── css/
-│   ├── js/
-│   ├── images/
+```text
+CodeAlpha_E-Commerce/
 │
-├── views/
-├── routes/
-├── models/
-├── server.js
-├── package.json
+├── index.html
+├── css/
+├── js/
+├── images/
+├── assets/
 └── README.md
 ```
 
-## 🚀 Getting Started
+## 💻 Installation
 
-### Clone the Repository
-
-```bash
-git clone https://github.com/your-username/ecommerce-website.git
-```
-
-### Navigate to the Project Folder
+1. Clone the repository:
 
 ```bash
-cd ecommerce-website
+git clone https://github.com/Suryamuruganvijayalakshmi/CodeAlpha_E-Commerce.git
 ```
 
-### Install Dependencies
+2. Navigate to the project folder:
 
 ```bash
-npm install
+cd CodeAlpha_E-Commerce
 ```
 
-### Run the Application
+3. Open `index.html` in your browser.
 
-```bash
-npm start
-```
+## 📸 Screenshots
 
-The application will be available at:
+Add screenshots of the following pages:
 
-```
-http://localhost:3000
-```
+- Home Page
+- Product Page
+- Shopping Cart
+- Checkout Page
 
-## 📸 Preview
+## 🎯 Future Improvements
 
-Add screenshots of the homepage, product page, cart, and checkout page here.
-
-## 🔮 Future Enhancements
-
-- Payment gateway integration
-- Product reviews and ratings
-- Admin dashboard
-- Wishlist functionality
-- Order tracking system
-- AI-powered recommendations
+- User Authentication
+- Payment Gateway Integration
+- Order Tracking System
+- Product Reviews and Ratings
+- Admin Dashboard
+- AI-Based Product Recommendations
 
 ## 🤝 Contributing
 
-Contributions are welcome! Feel free to fork this repository and submit a pull request.
+Contributions are welcome! Feel free to fork the repository and submit a pull request.
 
 ## 📜 License
 
@@ -103,4 +78,10 @@ This project is licensed under the MIT License.
 
 ---
 
-⭐ If you like this project, consider giving it a star on GitHub!
+## 👨‍💻 Author
+
+**Surya V M**
+
+- GitHub: [Suryamuruganvijayalakshmi](https://github.com/Suryamuruganvijayalakshmi)
+
+⭐ If you found this project useful, don't forget to star the repository!
